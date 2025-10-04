@@ -50,7 +50,7 @@ export enum InternalOps {
  * Events for internal use
  */
 export enum ClientEvents {
-    READY = 'clientReady',
+    READY = 'ready',
     SHARD_READY = 'shardReady',
     SHARD_RECONNECT = 'shardReconnect',
     SHARD_RESUME = 'shardResume',
