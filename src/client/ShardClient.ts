@@ -62,7 +62,7 @@ export class ShardClient {
             this.client.emit('debug', `[Indomitable]: Identify server responded and is working, Trip Latency: ${Math.round(Date.now() - date)}ms`);
         }
         // attach listeners 
-        this.client.once('ready', () => this.send({ op: ClientEvents.READY, data: { clusterId: this.clusterId }}));
+        this.client.once('clientReady', () => this.send({ op: ClientEvents.READY, data: { clusterId: this.clusterId }}));
         this.client.on('shardReady', (shardId: number) => this.send({ op: ClientEvents.SHARD_READY, data: { clusterId: this.clusterId, shardId }}));
         this.client.on('shardReconnecting', (shardId: number) => this.send({ op: ClientEvents.SHARD_RECONNECT, data: { clusterId: this.clusterId, shardId }}));
         this.client.on('shardResume', (shardId: number, replayed: number) => this.send({ op: ClientEvents.SHARD_RESUME, data: { clusterId: this.clusterId, shardId, replayed }}));
